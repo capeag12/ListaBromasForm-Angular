@@ -1,0 +1,11 @@
+<form [formGroup]="formAdd">
+    <label for="Pregunta">Pregunta:</label>
+    <input  type="text" name="Pregunta" formControlName="pregunta" >
+    <div *ngIf="this.formAdd.controls['pregunta'].errors">No ha validado bien</div>
+    <br>
+    <label for="Respuesta">Respuesta:</label>
+    <input type="text" name="Respuesta" formControlName="respuesta" comprobarValidacion [param]="{validado:this.formAdd.controls['respuesta'].valid}">
+    <div *ngIf="this.formAdd.controls['respuesta'].errors">No ha validado bien</div>
+    <br>
+    <button>Añadir pregunta</button>
+</form>
