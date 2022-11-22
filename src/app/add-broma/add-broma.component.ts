@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Broma } from '../broma';
+import { ServicioBromas } from '../servicio-bromas.service';
 
 @Component({
   selector: 'app-add-broma',
@@ -12,7 +14,7 @@ export class AddBromaComponent implements OnInit {
   pregValidado!:boolean
   resValidado!:boolean
   
-  constructor() { }
+  constructor(private servicio:ServicioBromas) { }
 
   ngOnInit(): void {
     this.formAdd = new FormGroup({
@@ -20,8 +22,11 @@ export class AddBromaComponent implements OnInit {
       respuesta:new FormControl("",[Validators.required, Validators.minLength(6)])
     })
 
-    
-    this.resValidado = this.formAdd.controls['respuesta'].valid
+  }
+
+  addBroma(){
+    this.servicio.addBroma(new Broma(this.formAdd.controls['pregunta'].value,this.formAdd.controls['respuesta'].value))
+    this.formAdd.reset()
   }
 
 }

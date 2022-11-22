@@ -11,16 +11,13 @@ export class BromaComponent implements OnInit {
   @Input() indice!:number
   broma!:Broma
   
-
-  
-  
   constructor(private servicio:ServicioBromas) { 
     
   }
 
   ngOnInit(): void {
     this.broma = this.servicio.devolverBroma(this.indice);
-    console.log(this.broma)
+    
   }
 
   eliminarBroma(){

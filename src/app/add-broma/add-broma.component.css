@@ -1,3 +1,15 @@
 .err{
     border-color: red;
 }
+
+#formulario{
+    width: 75%;
+    float: left;
+    margin-left: 12.5%;
+    margin-right:12.5% ;
+    margin-top: 15px;
+}
+
+.invalido{
+    color: red;
+}
