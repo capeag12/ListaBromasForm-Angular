@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Broma } from '../broma';
 import { ServicioBromas } from '../servicio-bromas.service';
 
 @Component({
@@ -7,11 +8,12 @@ import { ServicioBromas } from '../servicio-bromas.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  listaBromas = this.servicio.getListaBromas()
+  listaBromas:Broma[] = this.servicio.getListaBromas()
 
   constructor(private servicio:ServicioBromas) { 
     console.log(servicio)
     console.log(this.listaBromas)
+    this.servicio.getChistesObservable().subscribe( listaRecuperada=>this.listaBromas=listaRecuperada)
   }
 
   ngOnInit(): void {
