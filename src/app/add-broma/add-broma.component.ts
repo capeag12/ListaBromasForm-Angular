@@ -11,9 +11,6 @@ import { ServicioBromas } from '../servicio-bromas.service';
 export class AddBromaComponent implements OnInit {
   formAdd!:FormGroup
 
-  pregValidado!:boolean
-  resValidado!:boolean
-  
   constructor(private servicio:ServicioBromas) { }
 
   ngOnInit(): void {
