@@ -25,6 +25,7 @@ export class AddBromaComponent implements OnInit {
   }
 
   addBroma(){
+    
     this.servicio.addBroma(new Broma(this.formAdd.controls['pregunta'].value,this.formAdd.controls['respuesta'].value))
     this.formAdd.reset()
   }
